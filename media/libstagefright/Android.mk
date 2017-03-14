@@ -144,14 +144,14 @@ LOCAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
 endif
 
 #QTI FLAC Decoder
-ifeq ($(call is-vendor-board-platform,QCOM),true)
+#ifeq ($(call is-vendor-board-platform,QCOM),true)
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/mm-audio
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_EXTN_FLAC_DECODER)),true)
 LOCAL_SRC_FILES += FLACDecoder.cpp
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/mm-audio/audio-flac
 LOCAL_CFLAGS += -DQTI_FLAC_DECODER
 endif
-endif
+#endif
 
 LOCAL_STATIC_LIBRARIES := \
         libstagefright_color_conversion \
@@ -166,7 +166,7 @@ LOCAL_STATIC_LIBRARIES := \
         libFLAC \
         libmedia_helper
 
-ifeq ($(call is-vendor-board-platform,QCOM),true)
+#ifeq ($(call is-vendor-board-platform,QCOM),true)
 
 ifeq ($(TARGET_USES_QCOM_BSP), true)
     LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/libgralloc
@@ -184,7 +184,7 @@ endif #TARGET_ENABLE_AV_ENHANCEMENTS
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD)),true)
        LOCAL_CFLAGS     += -DFLAC_OFFLOAD_ENABLED
 endif
-endif
+#endif
 
 ifeq ($(BOARD_USE_S3D_SUPPORT), true)
 ifeq ($(BOARD_USES_HWC_SERVICES), true)
